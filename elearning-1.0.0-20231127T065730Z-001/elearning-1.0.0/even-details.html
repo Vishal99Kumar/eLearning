@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .event-details {
+            width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .event-details-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .event-details-content {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .back-to-events {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-to-events a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .back-to-events a:hover {
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="event-details">
+        <div class="event-details-header">Event Details</div>
+        <div class="event-details-content">
+            <p>Date: <span id="event-date"></span></p>
+            <p>Time: <span id="event-time"></span></p>
+            <p>Entry Fee: <span id="event-fee"></span></p>
+            <p>Venue: <span id="event-venue"></span></p>
+        </div>
+        <div class="back-to-events">
+            <a href="events.html">Back to Events</a>
+        </div>
+    </div>
+
+    <script>
+        // Extract parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const date = urlParams.get('date') || 'Not Available';
+        const time = urlParams.get('time') || 'Not Available';
+        const fee = urlParams.get('fee') || 'Not Available';
+        const venue = urlParams.get('venue') || 'Not Available';
+
+        // Display event details
+        document.getElementById('event-date').textContent = date;
+        document.getElementById('event-time').textContent = time;
+        document.getElementById('event-fee').textContent = fee;
+        document.getElementById('event-venue').textContent = venue;
+    </script>
+
+</body>
+</html>

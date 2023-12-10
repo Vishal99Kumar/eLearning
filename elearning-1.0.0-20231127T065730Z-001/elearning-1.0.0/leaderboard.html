@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Leaderboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .leaderboard {
+            width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .leaderboard-header {
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .leaderboard-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .leaderboard-table td:hover {
+            background-color: #f2f2f2;
+        }
+
+        .profile-picture-container {
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .profile-picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: border-color 0.3s;
+        }
+
+        .leaderboard-item:hover .profile-picture {
+            border-color: #3498db;
+        }
+
+        .student-name,
+        .score {
+            cursor: pointer;
+        }
+
+        .student-name:hover,
+        .score:hover {
+            color: #3498db;
+        }
+
+        .score {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+    
+    <div class="leaderboard">
+        <div class="leaderboard-header">Student Leaderboard</div>
+        <table class="leaderboard-table">
+            <tbody>
+                <tr class="leaderboard-item" onclick="showDetails('John Doe', 95)">
+                    <td class="profile-picture-container"><img src="img/user.png" alt="Profile" class="profile-picture"></td>
+                    <td class="student-name">John Doe</td>
+                    <td class="score">95</td>
+                </tr>
+                <tr class="leaderboard-item" onclick="showDetails('Jane Smith', 90)">
+                    <td class="profile-picture-container"><img src="img/user.png" alt="Profile" class="profile-picture"></td>
+                    <td class="student-name">Jane Smith</td>
+                    <td class="score">90</td>
+                </tr>
+               
+                <tr class="leaderboard-item" onclick="showDetails('Jane Smith', 90)">
+                    <td class="profile-picture-container"><img src="img/user.png" alt="Profile" class="profile-picture"></td>
+                    <td class="student-name">Jane Smith</td>
+                    <td class="score">90</td>
+                </tr>
+
+                <tr class="leaderboard-item" onclick="showDetails('Jane Smith', 90)">
+                    <td class="profile-picture-container"><img src="img/user.png" alt="Profile" class="profile-picture"></td>
+                    <td class="student-name">Jane Smith</td>
+                    <td class="score">90</td>
+                </tr>
+
+                <tr class="leaderboard-item" onclick="showDetails('Jane Smith', 90)">
+                    <td class="profile-picture-container"><img src="img/user.png" alt="Profile" class="profile-picture"></td>
+                    <td class="student-name">Jane Smith</td>
+                    <td class="score">90</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function showDetails(studentName, score) {
+            // Redirect to another page with student details
+            window.location.href = `details.html?name=${encodeURIComponent(studentName)}&score=${encodeURIComponent(score)}`;
+        }
+    </script>
+
+</body>
+</html>

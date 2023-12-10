@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Add your styles here -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="dashboard-container">
+        <h2>Welcome, <span id="user-username"></span>!</h2>
+        <button onclick="startQuiz()">Start Quiz</button>
+        <div id="scoreboard">
+            <h3>Scoreboard</h3>
+            <p id="user-score">Questions done: 0</p>
+        </div>
+    </div>
+
+    <script>
+        var username = localStorage.getItem("username");
+
+        if (username) {
+            document.getElementById("user-username").textContent = username;
+        } else {
+            // Redirect to login if not logged in
+            window.location.href = "index.html";
+        }
+
+        function startQuiz() {
+            // Redirect to the quiz page
+            window.location.href = "quiz.html";
+        }
+    </script>
+
+</body>
+
+</html>
