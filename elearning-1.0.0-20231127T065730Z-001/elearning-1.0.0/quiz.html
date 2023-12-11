@@ -5,40 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
-    <!-- Add your styles here -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
     <div id="quiz-container">
-        <h2>Quiz - Level 1</h2>
-        <!-- Add your quiz questions and options here -->
-        <button onclick="nextQuestion()">Next Question</button>
+        <h2>Choose a Level</h2>
+        <button onclick="startLevel(1)">Level 1</button>
+        <button onclick="startLevel(2)">Level 2</button>
+        <button onclick="startLevel(3)">Level 3</button>
     </div>
 
     <script>
-        var userScore = 0;
-        var currentQuestion = 1;
-
-        // Simulated quiz data
-        var quizData = [
-            { question: "Question 1?", options: ["Option A", "Option B", "Option C"], answer: 0 },
-            // Add more questions here
-        ];
-
-        function nextQuestion() {
-            // Simulate moving to the next question
-            if (currentQuestion < quizData.length) {
-                currentQuestion++;
-                alert("Moving to the next question!");
-            } else {
-                // Quiz completed
-                alert("Quiz completed! Your score: " + userScore);
-                // Update the scoreboard on the dashboard
-                localStorage.setItem("userScore", userScore);
-                window.location.href = "dashboard.html";
-            }
+        function startLevel(level) {
+            localStorage.setItem("currentLevel", level);
+            window.location.href = "questions.html";
         }
     </script>
 

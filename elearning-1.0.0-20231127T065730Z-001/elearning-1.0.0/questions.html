@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="questions-container">
+        <h2>Level <span id="current-level"></span> - Question <span id="current-question"></span></h2>
+        <form id="question-form">
+            <!-- Questions and options are dynamically loaded here using JavaScript -->
+            <button type="button" onclick="submitAnswer()">Submit Answer</button>
+        </form>
+    </div>
+
+    <script>
+        var currentLevel = localStorage.getItem("currentLevel");
+        var currentQuestion = 1;
+        var userScore = 0;
+
+        if (!currentLevel) {
+            window.location.href = "dashboard.html";
+        }
+
+        document.getElementById("current-level").textContent = currentLevel;
+
+        // Simulated quiz data
+        var quizData = {
+            1: [
+                { question: "What is the capital of France?", options: ["Paris", "London", "Berlin"], answer: 0 },
+                { question: "Which planet is known as the Red Planet?", options: ["Mars", "Venus", "Jupiter"], answer: 0 },
+                { question: "What is the largest mammal in the world?", options: ["Elephant", "Blue Whale", "Giraffe"], answer: 1 },
+                { question: "In which year did the Titanic sink?", options: ["1912", "1905", "1920"], answer: 0 },
+                { question: "What is the currency of Japan?", options: ["Yuan", "Yen", "Rupee"], answer: 1 },
+            ],
+            2: [
+                // Add more questions for Level 2
+            ],
+            3: [
+                // Add more questions for Level 3
+            ]
+        };
+
+        loadQuestion();
+
+        function loadQuestion() {
+            var currentQuiz = quizData[currentLevel];
+            var currentQuestionData = currentQuiz[currentQuestion - 1];
+
+            if (currentQuestionData) {
+                document.getElementById("current-question").textContent = currentQuestion;
+
+                var form = document.getElementById("question-form");
+                form.innerHTML = `<p>${currentQuestionData.question}</p>`;
+
+                for (var i = 0; i < currentQuestionData.options.length; i++) {
+                    form.innerHTML += `<label><input type="radio" name="answer" value="${i}">${currentQuestionData.options[i]}</label>`;
+                }
+
+                form.innerHTML += `<button type="button" onclick="submitAnswer()">Submit Answer</button>`;
+            } else {
+                alert("Quiz completed! Your final score: " + userScore);
+                window.location.href = "dashboard.html";
+            }
+        }
+
+        function submitAnswer() {
+            var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+
+            if (selectedAnswer) {
+                var currentQuiz = quizData[currentLevel];
+                var currentQuestionData = currentQuiz[currentQuestion - 1];
+
+                if (parseInt(selectedAnswer.value) === currentQuestionData.answer) {
+                    alert("Correct!");
+                    userScore++;
+                } else {
+                    alert("Incorrect!");
+                }
+
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                alert("Please select an answer before submitting.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

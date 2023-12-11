@@ -1,28 +1,58 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-  }
-  
-  #login-container,
-  #dashboard-container,
-  #quiz-container {
+}
+
+#login-container,
+#dashboard-container,
+#quiz-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-  }
-  
-  button {
+}
+
+button {
     background-color: #4CAF50;
     color: white;
     padding: 10px 15px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #45a049;
-  }
-  
+}
+
+
+/* Quest CSS */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+#dashboard-container,
+#quiz-container,
+#questions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
